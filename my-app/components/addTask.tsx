@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { CreateTask } from "@/actions/createTask"
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -28,8 +29,10 @@ const AddTask = () => {
         },
       })
 
-      function onSubmit(values: z.infer<typeof formSchema>) {
+      async function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values)
+        const create = await CreateTask(values.username,false)
+        console.log(create)
       }
 
   return (
@@ -42,7 +45,7 @@ const AddTask = () => {
           render={({ field }) => (
             <FormItem className="flex-grow">
               <FormControl>
-                <Input placeholder="shadcn" {...field} className="w-full"/>
+                <Input placeholder="Enter task here..." {...field} className="w-full"/>
               </FormControl>
             </FormItem>
           )}
