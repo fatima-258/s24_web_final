@@ -33,6 +33,7 @@ const AddTask = () => {
         console.log(values)
         const create = await CreateTask(values.username,false)
         console.log(create)
+        // @refresh reset
       }
 
   return (
@@ -50,7 +51,7 @@ const AddTask = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="flex-none ">Add Task <span className="text-purple-600 text-2xl pl-2">+</span> </Button>
+        <Button type="submit" className="flex-none " >Add Task <span className="text-purple-600 text-2xl pl-2">+</span> </Button>
       </form>
     </Form>
     </div>
